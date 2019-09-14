@@ -1,0 +1,8 @@
+# [basics] re
+First reverse engineering challenege. Worth 100 points.
+
+You were given a file named calculator. Running this though a hex editor revealed the flag.
+
+[![1.png](https://i.postimg.cc/vB9Hxwrm/1.png)](https://postimg.cc/8JpVx3n8)
+
+
