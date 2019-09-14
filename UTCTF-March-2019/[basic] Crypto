@@ -1,0 +1,21 @@
+# [basic] Crypto
+First cryptograhpy challenge. Worth 200 points.
+
+Binary was provided for this challenge. 
+Running the binary through an online converter revealed a message along with something else to decode.
+
+[![1.png](https://i.postimg.cc/43k0NCxP/1.png)](https://postimg.cc/8744t0Wf)
+
+This was base64, running it through a converter revealed the next part of the challenge.
+
+[![2.png](https://i.postimg.cc/43P1Cj7m/2.png)](https://postimg.cc/SXX9CTGh)
+
+This revealed a shifted the new text to be shifted. I used an online tool to shift the letters until the answer was revealed.
+
+[![3.png](https://i.postimg.cc/FHtp0yXs/3.png)](https://postimg.cc/jLXybJjG)
+
+This last part is a substituation cipher which had to be done by hand.
+
+[![4.png](https://i.postimg.cc/NFm9jpbK/4.png)](https://postimg.cc/bSYN607P)
+
+Finally revealing the flag.
