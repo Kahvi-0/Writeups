@@ -71,8 +71,7 @@ I attempted to use the metasploit module for vsftpd 2.3.4 backdoor code executio
 
 Trying the module I found for distccd got me a shell as daemon user, which does not have elevated privileges. I was only able to get the user flag. I wanted to try the other exploits prior to any privilege escalation exploits.
 
-![distccd shell](https://user-images.githubusercontent.com/46513413/72588812-758c5580-38c7-11ea-8dee-2ffef1f4782c.png)
-
+![72588812-758c5580-38c7-11ea-8dee-2ffef1f4782c](https://user-images.githubusercontent.com/46513413/72676031-7f928d80-3a5a-11ea-983d-2ed313a7094b.png)
 **Samba**
 
 Finally I tried multiple samba modules, including [CVE-2012-1182](https://www.rapid7.com/db/modules/exploit/linux/samba/setinfopolicy_heap), having no luck with a shell. Eventually I tried a module for [CVE-2007-2447](https://www.rapid7.com/db/modules/exploit/multi/samba/usermap_script), which is exploited by specifying a username containing shell meta characters, which then attackers can execute commands.
