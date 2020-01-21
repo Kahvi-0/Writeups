@@ -4,7 +4,7 @@
 
 ## Recon and enumneration
 
-I started with an namp scan
+I started with an nmap scan
 
     nmap -p - -T4 -A -v 10.10.10.40
     
