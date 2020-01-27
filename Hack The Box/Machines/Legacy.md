@@ -41,10 +41,15 @@ Inital port scan:
 
  I am going to try to use the metaploit module "exploit/windows/smb/ms17_010_psexec"
  
+  We see that the target is indeed vulnerable!
 ![exploit 2](https://user-images.githubusercontent.com/46513413/73158598-4b4e4b00-40b2-11ea-9883-555a82dbfb60.png)
 
+
+  Exploit worked!
 ![Exploit 3](https://user-images.githubusercontent.com/46513413/73158632-68831980-40b2-11ea-9814-c3a185aa98ff.png)
 
+
+   We are admin!
 ![Getsystem](https://user-images.githubusercontent.com/46513413/73158682-92d4d700-40b2-11ea-8e06-bd7133e3a6bc.png)
 
  
