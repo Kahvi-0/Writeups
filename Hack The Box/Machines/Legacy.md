@@ -34,7 +34,7 @@ Inital port scan:
  
  ## Exploitation
   
-   Since this is a Windows XP machine with SMB v1 enabled I am going to attempt to exploit eternal blue.
+   Since this is a Windows XP machine with SMB v1 enabled I am going to attempt to exploit an exploit around ms17_010 such as eternal blue.
   
 
 ### Using Metasploit
