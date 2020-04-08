@@ -45,18 +45,20 @@ This was not available in the version I was running.
 
 **Classic Stored XSS**
 
-****
+**Deprecated Interface**
 
-****
+**Five-Star Feedback**
 
-****
+**Login Admin**
 
-****
+**Login MC SafeSearch**
 
-****
+**Password Strength**
 
-****
+**Security Policy**
 
-****
+**View Basket**
 
-****
+The locally stored cookie called "bid" controls the ID of the cart that you should be viewing. Chaning this value allows you to see other users carts. The value is just the number of the users basket in order of the user creation. The baskets are stored on the server under /rest/basket/<bid>
+
+**Weird Crypto**
