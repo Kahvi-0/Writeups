@@ -34,9 +34,15 @@ This was not available in the version I was running.
 
 **Repetitive Registration**
 
+When submitting the account registration by either manipulating the local code or the POST request in transit if you change the "passwordRepeat" parameter to no match the "password" parameter, the account is still created successfully with the value of "password" meaning the site does not follow DRY. 
+
 **Score Board**
 
+This is *now* found on the sidebar of the website.
+
 **Zero Stars**
+
+If you intercept the POST request for the feedback submission, you can change "rating" to be 0. This is not an intended function of the site and proves poor user input validation.
 
 
 ## 2 Star challenges
