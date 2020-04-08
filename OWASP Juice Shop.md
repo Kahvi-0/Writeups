@@ -11,9 +11,9 @@ Looking for the usual robots.txt had one entry for /ftp. This ftp directory cont
 
  The first area that I spotted with user input was the search function of the website. 
  
- I first tested with "<h3>test</h3>" with successful results. 
+ I first tested with "\<h3>test</h3>" with successful results. 
  
- I put in the challenges requested XSS "<iframe src="javascript:alert(`xss`)">" and an alert with xss popped up :)
+ I put in the challenges requested XSS "\<iframe src="javascript:alert(`xss`)">" and an alert with xss popped up :)
   
 
 **Error Handling**
