@@ -24,6 +24,8 @@ I triggered this while testing for SQLi in the login input.
 
 **Outdated Whitelist**
 
+Combing through the extracted script files for the site revealed a Dash coin wallet redirect "url:/redirect?to=https://explorer.dash.org/address/<address>". Using this redirect with Juice Shope shows that the website still accepts a redirect to a site after the usage of Dash coin has stopped. The developers also failed to remove all traces of refernces from their site of the previous functions.
+
 **Privacy Policy**
 
 The privacy policy is found under "Account -> Privay & Security -> Privacy Policy"
