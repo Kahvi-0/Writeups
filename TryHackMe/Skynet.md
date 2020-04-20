@@ -111,6 +111,8 @@ Notable output from enum4linux.
  
 **HTTP**
 
+![skynet](https://user-images.githubusercontent.com/46513413/79807914-41975500-833a-11ea-923f-1287fde183e5.png)
+
 The site itself is nothing special. The sites fundtions are either a POST request for either "Skynet+search" or "I;m Feeling Lucky" without the actual content of the search bar. 
 
   /squirrelmail - login page for SquirrelMail Login Webmail
@@ -122,18 +124,24 @@ The site itself is nothing special. The sites fundtions are either a POST reques
 
 Trying the system user **milesdyson** with the list of passwords from the log file reveals that **cyborg007haloterminator** is the valid password.
 
+![mail](https://user-images.githubusercontent.com/46513413/79807912-41975500-833a-11ea-929a-07f7786f2ffa.png)
+
 There are three emails in the inbox. The first one contains the milesdyson SMB share password )s{A&2Z=F^n_E.B\` . One of the other two is *"i can i i everything else . . . . . . . . . . . . . . balls have zero to me to me to me to me to me to me to me to me to"* and the other one is that phrase in binary.
 
 
 **SMB**
 
-Now that we know Miles' password, we are able to log into the milesdyson SMB share. The file notes/important.txt releaves a hidden directory the Miles has.
+Now that we know Miles' password, we are able to log into the milesdyson SMB share. The file notes/important.txt reveals a hidden directory the Miles has and mentions a CMS.
 
 /45kra24zxs28v3yd
 
+![miles](https://user-images.githubusercontent.com/46513413/79807911-41975500-833a-11ea-88b6-edef5c6bfac9.png)
 
-There was nothing special or manipulatable on this page. Running gobuster again on this directory shows that there is an administrator directory.
 
+There was nothing special or manipulatable on this page. The CMS mention in the note prompted me to run another directory bust attempt. Running gobuster again on this directory reveals an administrator directory.
+
+
+![cms](https://user-images.githubusercontent.com/46513413/79807910-40febe80-833a-11ea-9816-eb1f13913b08.png)
 
 
 Running searchsploit for cuppa shows one RFI/LFI vulnerability.
@@ -159,6 +167,8 @@ I used the python SimpleHTTP to host shell.elf.
 Using my current shell with SKYNET I went to a directory that I can write in /var/www/html. I used wget to download shell.elf and gave it executable permissions with chmod.
 
 After running this I had a successful meterpreter shell on SKYNET.
+
+![meterpreter](https://user-images.githubusercontent.com/46513413/79807913-41975500-833a-11ea-9d6f-72b93177efa0.png)
 
 ## Privilege escalation
 
@@ -188,3 +198,5 @@ After short while I ran "sudo -l" with the following results.
         (root) NOPASSWD: ALL
 
 I am now able to run "sudo cat /root/root.txt" :)
+
+![root](https://user-images.githubusercontent.com/46513413/79807915-422feb80-833a-11ea-8a7b-a1246d61051c.png)
