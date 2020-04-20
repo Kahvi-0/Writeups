@@ -59,6 +59,89 @@ Runing NMAP reveals the following open ports/services:
     |_  start_date: N/A
 
 
+Running gobuster revealed the following directories: 
+
+    /index.html 
+    /admin 
+    /ai 
+    /config 
+    /css 
+    /js 
+    /squirrelmail 
+    /.htaccess 
+    /.hta 
+    /.htpasswd 
+    /server-status 
+    
+    
+## Services
+
+**SMB**
+
+Notable output from enum4linux.
+
+     ======================================= 
+    |    Share Enumeration on 10.10.2.29    |
+     ======================================= 
+
+            Sharename       Type      Comment
+            ---------       ----      -------
+            print$          Disk      Printer Drivers
+            anonymous       Disk      Skynet Anonymous Share
+            milesdyson      Disk      Miles Dyson Personal Share
+            IPC$            IPC       IPC Service (skynet server (Samba, Ubuntu))
+    SMB1 disabled -- no workgroup available
+
+    [+] Attempting to map shares on 10.10.2.29
+    //10.10.2.29/print$     Mapping: DENIED, Listing: N/A
+    //10.10.2.29/anonymous  Mapping: OK, Listing: OK
+    //10.10.2.29/milesdyson Mapping: DENIED, Listing: N/A
+    //10.10.2.29/IPC$       [E] Can't understand response:
+    NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*
+    
+    S-1-5-21-2393614426-3774336851-1116533619-1000 SKYNET\milesdyson (Local User)
+    
+ We now have share list, share permissions and a valid system user.  
+
+ We have anonymous access to the anonymous share.
+ I downloaded all of the files in the share and found log files. 
+ 
+ The log file titled log1.txt contains user passwords.
+ 
+ 
+**HTTP**
+
+The site itself is nothing special. The sites fundtions are either a POST request for either "Skynet+search" or "I;m Feeling Lucky" without the actual content of the search bar. 
+
+  /squirrelmail - login page for SquirrelMail Login Webmail
+  
+
+## Gaining access
+
+**Squirrel mail:**
+
+Trying the system user **milesdyson** with the list of passwords from the log file reveals that **cyborg007haloterminator** is the valid password.
+
+There are three emails in the inbox. The first one contains the milesdyson SMB share password )s{A&2Z=F^n_E.B\` . One of the other two is *"i can i i everything else . . . . . . . . . . . . . . balls have zero to me to me to me to me to me to me to me to me to"* and the other one is that phrase in binary.
+
+
+**SMB**
+
+Now that we know Miles' password, we are able to log into the milesdyson SMB share. The file notes/important.txt releaves a hidden directory the Miles has.
+
+/45kra24zxs28v3yd
+
+
+There was nothing special or manipulatable on this page. Running gobuster again on this directory shows that there is an administrator directory.
+
+
+
+Running searchsploit for cuppa shows one RFI/LFI vulnerability.
+
+ 
+
+
+
 
 
 
