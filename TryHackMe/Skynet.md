@@ -122,11 +122,11 @@ The site itself is nothing special. The sites fundtions are either a POST reques
 
 **Squirrel mail:**
 
-Trying the system user **milesdyson** with the list of passwords from the log file reveals that **cyborg007haloterminator** is the valid password.
+Trying the system user **milesdyson** with the list of passwords from the log file reveals the valid password.
 
 ![mail](https://user-images.githubusercontent.com/46513413/79807912-41975500-833a-11ea-929a-07f7786f2ffa.png)
 
-There are three emails in the inbox. The first one contains the milesdyson SMB share password )s{A&2Z=F^n_E.B\` . One of the other two is *"i can i i everything else . . . . . . . . . . . . . . balls have zero to me to me to me to me to me to me to me to me to"* and the other one is that phrase in binary.
+There are three emails in the inbox. The first one contains the milesdyson SMB share password . One of the other two is *"i can i i everything else . . . . . . . . . . . . . . balls have zero to me to me to me to me to me to me to me to me to"* and the other one is that phrase in binary.
 
 
 **SMB**
