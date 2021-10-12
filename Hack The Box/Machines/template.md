@@ -2,7 +2,7 @@
 
 ## Recon and enumneration
 
-Inital port scan using:
+Inital port scan using the nmap TCP scan from https://github.com/Kahvi-0/Projects/blob/master/netScan/netScan.sh
 
     nmap -p - -T4 -A -v <IP>
     
