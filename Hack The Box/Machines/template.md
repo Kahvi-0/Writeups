@@ -27,7 +27,7 @@ Inital port scan using the nmap TCP scan from https://github.com/Kahvi-0/Project
 ### Manual exploitation
 
 
-# Final notes
+# Final notes and lessons learned
  
  
  
