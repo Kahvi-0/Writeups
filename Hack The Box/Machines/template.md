@@ -2,16 +2,14 @@
 
 ## Recon and enumneration
 
-Inital port scan:
+Inital port scan using:
 
-    nmap -p - -T4 -A -v 10.10.10.40
+    nmap -p - -T4 -A -v <IP>
     
-    -p-  scan all ports
-    
-    -T4 aggressive speed
-    
-    -A OS detection, service version scanning, script scanning and traceroute 
-    
+    -Pn assume host is up
+    -p-  scan all ports 
+    -T4 aggressive speed 
+    -A OS detection, service version scanning, script scanning and traceroute  
     -v verbose
     
     
